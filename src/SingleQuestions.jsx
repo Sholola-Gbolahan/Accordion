@@ -6,8 +6,18 @@ const SingleQuestions = ({ title, info }) => {
 
   return (
     <article className="question">
-      <header>{title}</header>
-      <p>{info}</p>
+      <header>
+        {title}
+        <button
+          className="question-btn"
+          onClick={() => {
+            setShowInfo(!showInfo);
+          }}
+        >
+          {showInfo ? <AiOutlineMinus /> : <AiOutlinePlus />}
+        </button>
+      </header>
+      {showInfo && <p>{info}</p>}
     </article>
   );
 };
